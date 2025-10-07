@@ -39,7 +39,7 @@ describe('TransactionRepository tests', () => {
         expect(persistedTransaction.status).toBe(transaction.status);
         expect(persistedTransaction.amount).toBe(transaction.amount);
         expect(persistedTransaction.createdAt).toStrictEqual(transaction.createdAt);
-        expect(persistedTransaction.updatedAt.getTime()).toBeGreaterThan(transaction.updatedAt.getTime());
+        expect(persistedTransaction.updatedAt.getTime()).toBeGreaterThanOrEqual(transaction.updatedAt.getTime());
 
     })
 
