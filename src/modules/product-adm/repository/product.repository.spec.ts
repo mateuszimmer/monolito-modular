@@ -51,7 +51,7 @@ describe('ProductReporitory test', () => {
             purchasePrice: 100,
             stock: 20,
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
         };
 
         await ProductModel.create(productModel);

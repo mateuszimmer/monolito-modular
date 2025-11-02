@@ -6,7 +6,6 @@ export type ClientConstructorProps = {
     id?: Id;
     name: string;
     email: string;
-    document: string;
     street: string;
     number: string;
     complement: string;
@@ -18,10 +17,8 @@ export type ClientConstructorProps = {
 }
 
 export default class Client extends BaseEntity implements AggregateRoot {
-
     private _name: string;
     private _email: string;
-    private _document: string;
     private _street: string;
     private _number: string;
     private _complement: string;
@@ -30,16 +27,7 @@ export default class Client extends BaseEntity implements AggregateRoot {
     private _zipCode: string;
 
     constructor(props: ClientConstructorProps) {
-        super(props.id, props.createdAt, props.updatedAt);
-        this._name = props.name;
-        this._email = props.email;
-        this._document = props.document;
-        this._street = props.street;
-        this._number = props.number;
-        this._complement = props.complement;
-        this._city = props.city;
-        this._state = props.state;
-        this._zipCode = props.zipCode;
+        super(props.id, props.createdAt, props.updatedAt)
     }
 
     get name(): string {
@@ -48,10 +36,6 @@ export default class Client extends BaseEntity implements AggregateRoot {
 
     get email(): string {
         return this._email;
-    }
-
-    get document(): string {
-        return this._document;
     }
 
     get street(): string {
@@ -76,5 +60,4 @@ export default class Client extends BaseEntity implements AggregateRoot {
     get zipCode(): string {
         return this._zipCode;
     }
-
 }

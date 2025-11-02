@@ -6,7 +6,13 @@ import FindClientUseCase from "./find-client.usecase";
 const client = new Client({
     name: 'Client Name',
     email: 'Client Email',
-    address: 'Address',
+    document: 'document',
+    street: 'StreetName',
+    number: '123',
+    complement: 'complement',
+    city: 'city Name',
+    state: 'State Name',
+    zipCode: '123456',
 })
 
 const MockRepo = (): jest.MockedObject<ClienGateway> => ({
@@ -28,7 +34,13 @@ describe('FindClientUseCase unit tests', () => {
         expect(output.id).toBe(client.id.id);
         expect(output.name).toBe(client.name);
         expect(output.email).toBe(client.email);
-        expect(output.address).toBe(client.address);
+        expect(output.document).toBe(client.document);
+        expect(output.street).toBe(client.street);
+        expect(output.number).toBe(client.number);
+        expect(output.complement).toBe(client.complement);
+        expect(output.city).toBe(client.city);
+        expect(output.state).toBe(client.state);
+        expect(output.zipCode).toBe(client.zipCode);
         expect(output.createdAt).toBe(client.createdAt);
         expect(output.updatedAt).toBe(client.updatedAt);
     });

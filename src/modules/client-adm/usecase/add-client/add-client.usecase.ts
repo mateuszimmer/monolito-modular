@@ -14,7 +14,13 @@ export default class AddClientUseCase implements UseCaseInterface{
         const inputProps: ClientConstructorProps = {
             name: input.name,
             email: input.email,
-            address: input.address
+            document: input.document,
+            street: input.street,
+            number: input.number,
+            complement: input.complement,
+            city: input.city,
+            state: input.state,
+            zipCode: input.zipCode,
         };
         const clientInput = new Client(inputProps);
         await this._repo.add(clientInput);
@@ -22,7 +28,13 @@ export default class AddClientUseCase implements UseCaseInterface{
             id: clientInput.id.id,
             name: clientInput.name,
             email: clientInput.email,
-            address: clientInput.address,
+            document: clientInput.document,
+            street: clientInput.street,
+            number: clientInput.number,
+            complement: clientInput.complement,
+            city: clientInput.city,
+            state: clientInput.state,
+            zipCode: clientInput.zipCode,
             createdAt: clientInput.createdAt,
             updatedAt: clientInput.updatedAt,
         } as OutputAddClientUseCase;

@@ -25,8 +25,14 @@ describe('ClientRepository tests', () => {
     it('should add a client', async () => {
         const client = new Client({
             name: 'clientName',
-            address: 'clientAddress',
             email: 'clientEmail',
+            document: 'document',
+            street: 'street name',
+            number: '123',
+            complement: 'complement',
+            city: 'city name',
+            state: 'state name',
+            zipCode: '12345',
         });
 
         const repository = new ClientRepository();
@@ -37,7 +43,13 @@ describe('ClientRepository tests', () => {
         expect(clientModel.id).toBe(client.id.id);
         expect(clientModel.name).toBe(client.name);
         expect(clientModel.email).toBe(client.email);
-        expect(clientModel.address).toBe(client.address);
+        expect(clientModel.document).toBe(client.document);
+        expect(clientModel.street).toBe(client.street);
+        expect(clientModel.number).toBe(client.number);
+        expect(clientModel.complement).toBe(client.complement);
+        expect(clientModel.city).toBe(client.city);
+        expect(clientModel.state).toBe(client.state);
+        expect(clientModel.zipCode).toBe(client.zipCode);
         expect(clientModel.createdAt).toStrictEqual(client.createdAt);
         expect(clientModel.updatedAt).toStrictEqual(client.updatedAt);
     });
@@ -45,8 +57,14 @@ describe('ClientRepository tests', () => {
     it('should find a client', async () => {
         const client = new Client({
             name: 'clientName',
-            address: 'clientAddress',
             email: 'clientEmail',
+            document: 'document',
+            street: 'street name',
+            number: '123',
+            complement: 'complement',
+            city: 'city name',
+            state: 'state name',
+            zipCode: '12345',
         });
 
         const repository = new ClientRepository();
@@ -57,7 +75,12 @@ describe('ClientRepository tests', () => {
         expect(clientOutput.id).toStrictEqual(client.id);
         expect(clientOutput.name).toBe(client.name);
         expect(clientOutput.email).toBe(client.email);
-        expect(clientOutput.address).toBe(client.address);
+        expect(clientOutput.street).toBe(client.street);
+        expect(clientOutput.number).toBe(client.number);
+        expect(clientOutput.complement).toBe(client.complement);
+        expect(clientOutput.city).toBe(client.city);
+        expect(clientOutput.state).toBe(client.state);
+        expect(clientOutput.zipCode).toBe(client.zipCode);
         expect(clientOutput.createdAt).toStrictEqual(client.createdAt);
         expect(clientOutput.updatedAt).toStrictEqual(client.updatedAt);
     });
