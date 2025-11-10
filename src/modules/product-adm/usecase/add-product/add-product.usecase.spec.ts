@@ -20,6 +20,7 @@ describe('AddProductUseCase unit test', () => {
             name: 'Product 1',
             description: 'Product 1 description',
             purchasePrice: 100,
+            salesPrice: 250,
             stock: 20
         } as AddProductInputDTO;
         // usecase
@@ -33,6 +34,7 @@ describe('AddProductUseCase unit test', () => {
         expect(output.name).toBe(input.name);
         expect(output.description).toBe(input.description);
         expect(output.purchasePrice).toBe(input.purchasePrice);
+        expect(output.salesPrice).toBe(input.salesPrice);
         expect(output.stock).toBe(input.stock);
     });
 

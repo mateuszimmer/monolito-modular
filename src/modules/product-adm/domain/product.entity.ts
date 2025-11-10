@@ -7,6 +7,7 @@ export type ProductConstructorProps = {
     name: string;
     description: string;
     purchasePrice: number;
+    salesPrice: number;
     stock: number;
     createdAt?: Date;
     updatedAt?: Date;
@@ -17,6 +18,7 @@ export default class Product extends BaseEntity implements AggregateRoot {
     private _name: string;
     private _description: string;
     private _purchasePrice: number;
+    private _salesPrice: number;
     private _stock: number;
 
     constructor(input: ProductConstructorProps) {
@@ -24,6 +26,7 @@ export default class Product extends BaseEntity implements AggregateRoot {
         this._name = input.name;
         this._description = input.description;
         this._purchasePrice = input.purchasePrice;
+        this._salesPrice = input.salesPrice;
         this._stock = input.stock;
     }
 
@@ -49,6 +52,14 @@ export default class Product extends BaseEntity implements AggregateRoot {
 
     set purchasePrice(aPurchasePrice: number) {
         this._purchasePrice = aPurchasePrice;
+    }
+
+    get salesPrice(): number {
+        return this._salesPrice;
+    }
+
+    set salesPrice(newSalesPrice: number) {
+        this._salesPrice = newSalesPrice;
     }
 
     get stock(): number {

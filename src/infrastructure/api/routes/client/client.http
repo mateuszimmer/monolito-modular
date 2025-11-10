@@ -1,0 +1,14 @@
+POST http://localhost:3000/client HTTP/1.1
+content-type: application/json
+
+{
+    "name" : "client name",
+    "document" : "1144778899",
+    "email" : "test@mail.com",
+    "street" : "Street name",
+    "number" : "234",
+    "complement" : "complement",
+    "city" : "London",
+    "state" : "Alberta",
+    "zipCode" : "11445522",
+}

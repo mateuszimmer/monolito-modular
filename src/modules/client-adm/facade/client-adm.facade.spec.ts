@@ -29,7 +29,14 @@ describe('ClientAdmFacade tests', () => {
         const input: InputAddClientAdmFacade = {
             name: 'Client Name 1',
             email: 'email@test.com',
-            address: 'Client address, 123',
+            document: 'document',
+            street: 'StreetName',
+            number: '123',
+            complement: 'complement',
+            city: 'city Name',
+            state: 'State Name',
+            zipCode: '123456',
+
         };
 
         const outputFacade = await clientAdmFacade.add(input)
@@ -40,22 +47,40 @@ describe('ClientAdmFacade tests', () => {
         expect(client.id).toBe(outputFacade.id);
         expect(client.name).toBe(input.name);
         expect(client.email).toBe(input.email);
-        expect(client.address).toBe(input.address);
+        expect(client.document).toBe(input.document);
+        expect(client.street).toBe(input.street);
+        expect(client.number).toBe(input.number);
+        expect(client.complement).toBe(input.complement);
+        expect(client.city).toBe(input.city);
+        expect(client.state).toBe(input.state);
+        expect(client.zipCode).toBe(input.zipCode);
     });
 
-    it('should create a client', async () => {
+    it('should find a client', async () => {
         const client = new Client({
             id: new Id(),
             name: 'ClientName123',
             email: 'mail@test.com',
-            address: 'Address 123',
+            document: 'document',
+            street: 'StreetName',
+            number: '123',
+            complement: 'complement',
+            city: 'city Name',
+            state: 'State Name',
+            zipCode: '123456',
         })
 
         await ClientModel.create({
             id: client.id.id,
             name: client.name,
             email: client.email,
-            address: client.address,
+            document: client.document,
+            street: client.street,
+            number: client.number,
+            complement: client.complement,
+            city: client.city,
+            state: client.state,
+            zipCode: client.zipCode,
             createdAt: client.createdAt,
             updatedAt: client.updatedAt,
         })
@@ -71,7 +96,13 @@ describe('ClientAdmFacade tests', () => {
         expect(outputFacade.id).toBe(client.id.id);
         expect(outputFacade.name).toBe(client.name);
         expect(outputFacade.email).toBe(client.email);
-        expect(outputFacade.address).toBe(client.address);
+        expect(outputFacade.document).toBe(client.document);
+        expect(outputFacade.street).toBe(client.street);
+        expect(outputFacade.number).toBe(client.number);
+        expect(outputFacade.complement).toBe(client.complement);
+        expect(outputFacade.city).toBe(client.city);
+        expect(outputFacade.state).toBe(client.state);
+        expect(outputFacade.zipCode).toBe(client.zipCode);
         expect(outputFacade.createdAt).toStrictEqual(client.createdAt);
         expect(outputFacade.updatedAt).toStrictEqual(client.updatedAt);
     });

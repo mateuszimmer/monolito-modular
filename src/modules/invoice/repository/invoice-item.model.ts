@@ -2,10 +2,8 @@ import { BelongsTo, Column, ForeignKey, Model, PrimaryKey, Table } from "sequeli
 import InvoiceModel from "./invoice.model";
 import { NonAttribute } from "sequelize";
 
-
-
 @Table({
-    tableName: 'invoiceItem',
+    tableName: 'invoiceItems',
     timestamps: false
 })
 export default class InvoiceItemModel extends Model {
@@ -27,7 +25,7 @@ export default class InvoiceItemModel extends Model {
     declare updatedAt: Date;
 
     @ForeignKey(() => InvoiceModel)
-    @Column({ allowNull: false, field: 'invoice_id' })
+    @Column({ allowNull: false })
     declare invoiceId: string;
 
     @BelongsTo(() => InvoiceModel, 'invoiceId')
