@@ -1,8 +1,8 @@
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import UseCaseInterface from "../../../@shared/usecase/usecase.interface";
 import ClientAdmFacadeInterface from "../../../client-adm/facade/client-adm-facade.interface";
-import InvoiceFacade from "../../../invoice/facade/invoice.facade";
-import PaymentFacade from "../../../payment/facade/payment.facade";
+import InvoiceFacadeInterface from "../../../invoice/facade/invoice-facade.interface";
+import PaymentFacadeInterface from "../../../payment/facade/payment-facade.interface";
 import ProductAdmFacadeInterface from "../../../product-adm/facade/product-adm.facade.interface";
 import StoreCatalogFacadeInterface from "../../../store-catalog/facade/store-catalog-facade.interface";
 import Client from "../../domain/client.entity";
@@ -16,8 +16,8 @@ export type PlaceOrderUseCaseConstructorProps = {
     productFacade: ProductAdmFacadeInterface;
     catalogFacade: StoreCatalogFacadeInterface;
     repository: CheckoutGateway;
-    invoiceFacade: InvoiceFacade;
-    paymentFacade: PaymentFacade;
+    invoiceFacade: InvoiceFacadeInterface;
+    paymentFacade: PaymentFacadeInterface;
 }
 
 export default class PlaceOrderUseCase implements UseCaseInterface {
@@ -26,8 +26,8 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
     private _productFacade: ProductAdmFacadeInterface;
     private _catalogFacade: StoreCatalogFacadeInterface;
     private _repository: CheckoutGateway;
-    private _invoiceFacade: InvoiceFacade;
-    private _paymentFacade: PaymentFacade;
+    private _invoiceFacade: InvoiceFacadeInterface;
+    private _paymentFacade: PaymentFacadeInterface;
 
     constructor(props: PlaceOrderUseCaseConstructorProps) {
         this._clientFacade = props.clientFacade;
@@ -43,16 +43,15 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
         const client = await this._clientFacade.find({ id: input.clientId });
         if (!client)
             throw new Error('Client Not Found')
-
+        
         // Validar produtos -> função à parte
         await this.validateProducts(input);
-
+        
         // Recuperar os produtos.
         const products = await Promise.all(
             input.products.map((p) => this.getProduct(p.productId))
         );
-
-
+        
         // Criar o objeto do Client
         const myClient = new Client({
             id: new Id(client.id),
@@ -104,7 +103,6 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
         // Caso pagamento seja aprovado -> gerar invoice
         // Mudar o status da order para approved
         // Retornar DTO
-
 
         return {
             id: order.id.id,

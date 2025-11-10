@@ -28,6 +28,7 @@ describe('ProductReporitory test', () => {
             name: 'Product 1',
             description: 'Product 1 description',
             purchasePrice: 100,
+            salesPrice: 250,
             stock: 20
         });
 
@@ -40,6 +41,7 @@ describe('ProductReporitory test', () => {
         expect(productDb.name).toBe(product.name);
         expect(productDb.description).toBe(product.description);
         expect(productDb.purchasePrice).toBe(product.purchasePrice);
+        expect(productDb.salesPrice).toBe(product.salesPrice);
         expect(productDb.stock).toBe(product.stock);
     });
 
@@ -49,6 +51,7 @@ describe('ProductReporitory test', () => {
             name: 'Product 1',
             description: 'Product 1 description',
             purchasePrice: 100,
+            salesPrice: 250,
             stock: 20,
             createdAt: new Date(),
             updatedAt: new Date(),
@@ -64,6 +67,7 @@ describe('ProductReporitory test', () => {
         expect(productDb.name).toBe(productModel.name);
         expect(productDb.description).toBe(productModel.description);
         expect(productDb.purchasePrice).toBe(productModel.purchasePrice);
+        expect(productDb.salesPrice).toBe(productModel.salesPrice);
         expect(productDb.stock).toBe(productModel.stock);
         expect(productDb.createdAt).toStrictEqual(productModel.createdAt);
         expect(productDb.updatedAt).toStrictEqual(productModel.updatedAt);

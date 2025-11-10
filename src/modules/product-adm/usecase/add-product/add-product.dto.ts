@@ -3,6 +3,7 @@ export interface AddProductInputDTO {
     name: string;
     description: string;
     purchasePrice: number;
+    salesPrice: number;
     stock: number;
 }
 
@@ -11,6 +12,7 @@ export interface AddProductOutputDTO {
     name: string;
     description: string;
     purchasePrice: number;
+    salesPrice: number;
     stock: number;
     createdAt: Date;
     updatedAt: Date;

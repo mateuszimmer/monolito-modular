@@ -38,7 +38,6 @@ describe('PlaceOrderUseCase tests', () => {
             clientFacade: mockClientFacade,
             productFacade: mockProductFacade,
             catalogFacade: mockCatalogFacade,
-            // @ts-expect-error
             paymentFacade: mockPaymentFacade,
             // @ts-expect-error
             invoiceFacade: mockInvoiceFacade,

@@ -56,7 +56,7 @@ describe('ClientAdmFacade tests', () => {
         expect(client.zipCode).toBe(input.zipCode);
     });
 
-    it('should create a client', async () => {
+    it('should find a client', async () => {
         const client = new Client({
             id: new Id(),
             name: 'ClientName123',

@@ -28,6 +28,14 @@ export default class Client extends BaseEntity implements AggregateRoot {
 
     constructor(props: ClientConstructorProps) {
         super(props.id, props.createdAt, props.updatedAt)
+        this._name = props.name;
+        this._email = props.email;
+        this._street = props.street;
+        this._number = props.number;
+        this._complement = props.complement;
+        this._city = props.city;
+        this._state = props.state;
+        this._zipCode = props.zipCode;
     }
 
     get name(): string {

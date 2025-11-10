@@ -32,6 +32,7 @@ describe('ProductAdmFacade tests', () => {
             name: 'Product 1',
             description: 'Product 1 description',
             purchasePrice: 15,
+            salesPrice: 50,
             stock: 100
         } as InputAddProductFacadeDTO;
 
@@ -44,6 +45,7 @@ describe('ProductAdmFacade tests', () => {
         expect(productDb.name).toBe(input.name);
         expect(productDb.description).toBe(input.description);
         expect(productDb.purchasePrice).toBe(input.purchasePrice);
+        expect(productDb.salesPrice).toBe(input.salesPrice);
         expect(productDb.stock).toBe(input.stock);
     });
 
@@ -55,6 +57,7 @@ describe('ProductAdmFacade tests', () => {
             name: 'Product 1',
             description: 'Product 1 description',
             purchasePrice: 15,
+            salesPrice: 50,
             stock: 100
         } as InputAddProductFacadeDTO;
 

@@ -6,6 +6,7 @@ import GenerateInvoiceUseCase from "../usecase/generate-usecase/generate-invoice
 import InvoiceFacade from "./invoice.facade";
 import FindInvoiceUseCase from "../usecase/find-usecase/find-invoice.usecase";
 import InvoiceFacadeFactory from "../factory/invoice-facade.factory";
+import ClientModel from "../../checkout/repository/client.model";
 
 describe('InvoiceFacade tests', () => {
 
@@ -17,7 +18,7 @@ describe('InvoiceFacade tests', () => {
             storage: ':memory:',
             logging: false,
             sync: { force: true },
-            models: [ InvoiceModel, InvoiceItemModel ],
+            models: [ InvoiceModel, InvoiceItemModel, ClientModel ],
         });
         await sequelize.sync();
     });

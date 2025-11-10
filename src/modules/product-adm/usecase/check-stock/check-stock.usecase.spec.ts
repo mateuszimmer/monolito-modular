@@ -10,6 +10,7 @@ describe('CheckStockUseCase unit test', () => {
         name: 'Product 1',
         description: 'Product 1 description',
         purchasePrice: 30,
+        salesPrice: 75,
         stock: 3,
     });
     
